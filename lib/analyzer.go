@@ -94,7 +94,7 @@ func ConvertAdvisoryToReport(advisory models.Advisory) (vulnerability reports.Li
 // the language being analyzed, so we can speed up analysis time by removing useless files
 // and also loads the rules for the given language.
 // The returned errors should be handled by the caller.
-func LoadsFilesAndRules(dirname, tech string, lang string) (files []string, loadedRules []lexer.Rule, err error) {
+func LoadsFilesAndRules(dirname, tech string, lang string,jsonFilePath string) (files []string, loadedRules []lexer.Rule, err error) {
 	files, err = visitor.LoadSourceDir(dirname, tech)
 
 	if err != nil {
@@ -103,7 +103,7 @@ func LoadsFilesAndRules(dirname, tech string, lang string) (files []string, load
 
 	log.Printf("Found %d files to analyze.", len(files))
 
-	loadedRules, err = lexer.LoadRules(tech, lang)
+	loadedRules, err = lexer.LoadRules(tech, lang,jsonFilePath)
 
 	// Since even if there is an error we have to return it,
 	// and we are using named parameters, we can safely return now.
@@ -119,8 +119,8 @@ func CalculateSecurityScore(highestCVSS float64) float32 {
 // AnalyzeNonAppSource is a special function that will handle
 // the sample to be analyzed as a simple generic source code
 // since it do not need any special threatment.
-func AnalyzeNonAppSource(dirname, sastID, tech string, report *reports.Report, lang string) error {
-	files, rules, err := LoadsFilesAndRules(dirname, tech, lang)
+func AnalyzeNonAppSource(dirname, sastID, tech string, report *reports.Report, lang string,jsonFilePath string) error {
+	files, rules, err := LoadsFilesAndRules(dirname, tech, lang,jsonFilePath)
 
 	if err != nil {
 		return err

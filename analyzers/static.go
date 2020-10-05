@@ -20,7 +20,7 @@ func evaluateNotANDClause(fileContent string, rule lexer.Rule) (shouldReportFind
 		if results != nil {
 			// If this specific rule found anything, it means that
 			// it should not be in the final report.
-			rulesResults = append(rulesResults, false)
+			rulesResults = append(rulesResults, true) //orginal false
 		} else {
 			// Otherwise, it should come in the report
 			rulesResults = append(rulesResults, true)
@@ -29,7 +29,7 @@ func evaluateNotANDClause(fileContent string, rule lexer.Rule) (shouldReportFind
 
 	for _, wasASingleMatch := range rulesResults {
 		if wasASingleMatch {
-			shouldReportFinding = false
+			shouldReportFinding = true //original false
 			return
 		}
 	}
@@ -46,13 +46,13 @@ func evaluateNotORClause(fileContent string, rule lexer.Rule) (shouldReportFindi
 
 		// If already find something, don't need to evaluate the other one.
 		if !findPattern {
-			return
+			return true //original nth
 		}
 	}
 
 	// If we found the pattern intended not to be present
 	// we remove this finding from the final report
-	shouldReportFinding = false
+	shouldReportFinding = true //original false
 	return
 }
 

@@ -11,16 +11,20 @@ import (
 
 func main() {
 
-	var tech, lang, targetFolder string
+	var tech, lang, targetFolder, targetSaveLoc,jsonFilePath string
 	var noHTML, noJSON, noBanner, ignoreWarnings, verbose bool
 	var security int
 	var flaglabel = map[string]string{
 		"tech":   "Specify which technology ruleset to load. (Valid values are: android, ios, csharp, javascript)\n-tech javascript\n-tech csharp",
 		"target": "Specify where to look for files to run the specific ruleset.\n-target <folder>\n-target <myprojectfolder>",
+		"destination": "Specify where to save the json file",
+		"jsonFile":"Specify rule file",
 	}
 
 	flag.StringVar(&tech, "tech", "", flaglabel["tech"])
 	flag.StringVar(&targetFolder, "target", "", flaglabel["target"])
+	flag.StringVar(&targetSaveLoc,"destination","",flaglabel["destination"])
+	flag.StringVar(&jsonFilePath,"jsonFile","",flaglabel["jsonFile"])
 
 	// Optional flags
 	flag.BoolVar(&ignoreWarnings, "force", false, "Overwrite the report file name. Insider does not overwrite the results directory by default - Optional")
@@ -29,6 +33,7 @@ func main() {
 	flag.BoolVar(&noBanner, "no-banner", false, "Skips the banner printing (Useful for CI/Docker environments) - Optional")
 	flag.IntVar(&security, "security", 0, "Set the Security level, values ​​between 0 and 100")
 	flag.BoolVar(&verbose, "v", false, "Set true for verbose output")
+	
 
 	flag.Usage = func() {
 		fmt.Println("Insider is the CLI project from the Insider Application Security Team for the community")
@@ -66,6 +71,16 @@ func main() {
 		flagerr = append(flagerr, "Please put the insider out of the folder to be analyzed!")
 	}
 
+	if targetSaveLoc == ""{
+		flagerr = append(flagerr,"Please enter the save location")
+	}
+
+	if jsonFilePath == ""{
+		flagerr = append(flagerr,"Please specific rule file to use")
+	}
+	//jsonFilePath = "rules/"+jsonFilePath
+	//log.Println("Rule file to be use: ",jsonFilePath)
+
 	if len(flagerr) >= 1 {
 		for _, err := range flagerr {
 			log.Printf("Error: %v\n", err)
@@ -98,11 +113,11 @@ func main() {
 		log.Printf("Finished analysis for Android app #%s", targetFolder)
 	case "csharp":
 		log.Printf("Starting analysis for C# app #%s", sastID)
-		err = supervisors.RunCSharpSourceCodeAnalysis(codeInfo, lang, targetFolder, noJSON, noHTML, security, verbose, ignoreWarnings)
+		err = supervisors.RunCSharpSourceCodeAnalysis(codeInfo, lang, targetFolder, noJSON, noHTML, security, verbose, ignoreWarnings,targetSaveLoc,jsonFilePath)
 		log.Printf("Finished analysis for C# application #%s", sastID)
 	case "javascript":
 		log.Printf("Starting analysis for JavaScript/TypeScript app #%s", sastID)
-		err = supervisors.RunJSSourceCodeAnalysis(codeInfo, lang, targetFolder, noJSON, noHTML, security, verbose, ignoreWarnings)
+		err = supervisors.RunJSSourceCodeAnalysis(codeInfo, lang, targetFolder, noJSON, noHTML, security, verbose, ignoreWarnings,targetSaveLoc)
 		log.Println("Finished JavaScript/TypeScript analysis")
 	case "ios":
 		log.Printf("Starting analysis for iOS app #%s", sastID)

@@ -1,0 +1,34 @@
+{
+    "ruleset":[
+        {
+            "$and":[],
+            "$or":[],
+            "$match":"",
+            "$libraries":[],
+            "$permissions":[],
+            "$filter":"",
+            "$notAnd":[],
+            "$notOr":[],
+            "$not":"",
+            "andMatch":false,
+            "orMatch":false,
+            "notAndMatch":false,
+            "notOrMatch":false,
+            "notMatch":false,
+            "binaryMatch":false,
+            "cwe":"",
+            "cvss":0.0,
+            "title":"",
+            "level":"",
+            "description":"",
+            "description_PT-BR":"",
+            "description_EN":"",
+            "description_ES":"",
+            "recomendation":"",
+            "recomendation_PT-BR":"",
+            "recomendation_EN":"",
+            "recomendation_ES":""
+            
+        }
+    ]
+}

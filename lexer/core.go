@@ -6,7 +6,7 @@ func CoreRules(lang string) []Rule {
 	var obj Rule
 	obj.ExactMatch = `(password\s*=\s*['|"][\w\!\@\#\$\%\&\*\(\)\s]+['|"])|(pass\s*=\s*['|"][\w\!\@\#\$\%\&\*\(\)\s]+['|"]\s)|(pwd\s*=\s*['|"][\w\!\@\#\$\%\&\*\(\)\s]+['|"]\s)|(passwd\s*=\s*['|"][\w\!\@\#\$\%\&\*\(\)\s]+['|"]\s)|(senha\s*=\s*['|"][\w\!\@\#\$\%\&\*\(\)\s]+['|"])`
 	obj.CWE = "CWE-312"
-	obj.AverageCVSS = 6.8
+	obj.AverageCVSS = 7.4
 	obj.Description_en = "The file contains sensitive information written directly in the code, such as usernames, passwords, keys, etc. An attacker could decompile the application and obtain the data for improper use."
 	obj.Recomendation_en = "Credentials must not be stored in the Git code or repository. There are ‘Secrets Management’ solutions that can be used to store secrets or use Pipeline resources."
 	all = append(all, obj)
@@ -14,7 +14,7 @@ func CoreRules(lang string) []Rule {
 	obj = Rule{}
 	obj.ExactMatch = "\\d{2,3}\\.\\d{2,3}\\.\\d{2,3}\\.\\d{2,3}"
 	obj.CWE = "CWE-312"
-	obj.AverageCVSS = 6.8
+	obj.AverageCVSS = 7.4
 	obj.Description_en = "The file contains credentials stored in the code. An attacker could decompile the application and obtain it for internal / external use."
 	obj.Recomendation_en = "There are ‘Secrets Management’ solutions that can be used to store secrets."
 	all = append(all, obj)
@@ -45,7 +45,7 @@ func CoreRules(lang string) []Rule {
 	obj.ExactMatch = "(?i)aws(.{0,20})?(?-i)['\"][0-9a-zA-Z/+]{40}['\"]"
 	obj.CWE = "CWE-312"
 	obj.AverageCVSS = 6.8
-	obj.Description_en = "The file contains sensitive information written directly in the code, such as usernames, passwords, keys, etc. An attacker could decompile the application and obtain the data for improper use."
+	obj.Description_en = "The validateRequest flag that provides additional protection against XSS is disabled, 'false'e file contains sensitive information written directly in the code, such as usernames, passwords, keys, etc. An attacker could decompile the application and obtain the data for improper use."
 	obj.Recomendation_en = "Credentials must not be stored in the git code or repository, an attacker could decompile the application and obtain the credential. There are ‘Secrets Management’ solutions that can be used to store secrets or use Pipeline resources."
 	all = append(all, obj)
 

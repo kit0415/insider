@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0a066d1c-389b-4489-bc31-fbebd50507fd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/analyzers/static.go" beforeDir="false" afterPath="$PROJECT_DIR$/analyzers/static.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/insider" beforeDir="false" afterPath="$PROJECT_DIR$/bin/insider" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lexer/core.go" beforeDir="false" afterPath="$PROJECT_DIR$/lexer/core.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lexer/csharp.go" beforeDir="false" afterPath="$PROJECT_DIR$/lexer/csharp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lexer/rules.go" beforeDir="false" afterPath="$PROJECT_DIR$/lexer/rules.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/analyzer.go" beforeDir="false" afterPath="$PROJECT_DIR$/lib/analyzer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/analyzer_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/lib/analyzer_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/android.go" beforeDir="false" afterPath="$PROJECT_DIR$/lib/android.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ios.go" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ios.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supervisors/android.go" beforeDir="false" afterPath="$PROJECT_DIR$/supervisors/android.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supervisors/csharp.go" beforeDir="false" afterPath="$PROJECT_DIR$/supervisors/csharp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supervisors/hypervisor.go" beforeDir="false" afterPath="$PROJECT_DIR$/supervisors/hypervisor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supervisors/ios.go" beforeDir="false" afterPath="$PROJECT_DIR$/supervisors/ios.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supervisors/javascript.go" beforeDir="false" afterPath="$PROJECT_DIR$/supervisors/javascript.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="C:\Users\simon\sdk\go1.15.2" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1i7qKi7PntVNneHoaBwbmlxTCHt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="592" y="88" key="#GOPATH" timestamp="1601268972865">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="592" y="88" key="#GOPATH/-2736.0.1368.892/0.0.1600.860@0.0.1600.860" timestamp="1601268972865" />
+    <state x="592" y="360" key="#GOROOT" timestamp="1601268953130">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="592" y="360" key="#GOROOT/-2736.0.1368.892/0.0.1600.860@0.0.1600.860" timestamp="1601268953130" />
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1601268969772">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="184" key="FileChooserDialogImpl/-2736.0.1368.892/0.0.1600.860@0.0.1600.860" timestamp="1601268969772" />
+    <state x="301" y="74" key="SettingsEditor" timestamp="1601269794368">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="301" y="74" key="SettingsEditor/-2736.0.1368.892/0.0.1600.860@0.0.1600.860" timestamp="1601269794368" />
+  </component>
+</project>

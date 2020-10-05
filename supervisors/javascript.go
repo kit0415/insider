@@ -10,7 +10,7 @@ import (
 )
 
 // RunJSSourceCodeAnalysis analyzes the given folder and constructs a models.Report.
-func RunJSSourceCodeAnalysis(codeInfo SourceCodeInfo, lang string, destinationFolder string, noJSON bool, noHTML bool, security int, verbose bool, ignoreWarnings bool) error {
+func RunJSSourceCodeAnalysis(codeInfo SourceCodeInfo, lang string, destinationFolder string, noJSON bool, noHTML bool, security int, verbose bool, ignoreWarnings bool, targetSaveLoc string) error {
 	log.Println("Starting JavaScript source code analysis")
 
 	report := reports.Report{}
@@ -23,7 +23,7 @@ func RunJSSourceCodeAnalysis(codeInfo SourceCodeInfo, lang string, destinationFo
 		return err
 	}
 
-	if err := analyzers.AnalyzeNonAppSource(destinationFolder, codeInfo.SastID, "javascript", &report, lang); err != nil {
+	if err := analyzers.AnalyzeNonAppSource(destinationFolder, codeInfo.SastID, "javascript", &report, lang,""); err != nil {
 		return err
 	}
 
@@ -42,7 +42,7 @@ func RunJSSourceCodeAnalysis(codeInfo SourceCodeInfo, lang string, destinationFo
 	if noJSON {
 		log.Println("No Json report")
 	} else {
-		if err := reportResult(bReport, ignoreWarnings); err != nil {
+		if err := reportResult(bReport, ignoreWarnings,targetSaveLoc); err != nil {
 			return err
 		}
 	}

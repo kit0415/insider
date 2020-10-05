@@ -23,7 +23,7 @@ func AnalyzeAndroidManifest(dirname, sastID string, report *reports.AndroidRepor
 
 // AnalyzeAndroidSource self-explained
 func AnalyzeAndroidSource(dirname, sastID string, report *reports.AndroidReport, lang string) error {
-	files, rules, err := LoadsFilesAndRules(dirname, "android", lang)
+	files, rules, err := LoadsFilesAndRules(dirname, "android", lang,"")
 
 	if err != nil {
 		return err

@@ -42,7 +42,7 @@ func loadPlistData() (permissions []reports.IOSPermission, err error) {
 // from a decompiled IPA
 func AnalyzeIOSBinary(dirname, sastID string, report *reports.IOSReport, lang string) error {
 	log.Println("Found decompiled app, searching for special Info.plist structure")
-	binaryRules, err := lexer.LoadRules("iosBinary", lang)
+	binaryRules, err := lexer.LoadRules("iosBinary", lang,"")
 
 	if err != nil {
 		return err
@@ -181,7 +181,7 @@ func AnalyzeIOSBinary(dirname, sastID string, report *reports.IOSReport, lang st
 // AnalyzeIOSSource self-explained
 func AnalyzeIOSSource(dirname, sastID string, report *reports.IOSReport, lang string) error {
 
-	files, rules, err := LoadsFilesAndRules(dirname, "ios", lang)
+	files, rules, err := LoadsFilesAndRules(dirname, "ios", lang,"")
 
 	if err != nil {
 		return err

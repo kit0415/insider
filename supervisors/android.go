@@ -51,7 +51,7 @@ func RunAndroidSourceCodeAnalysis(codeInfo SourceCodeInfo, lang string, destinat
 	if noJSON {
 		log.Println("No Json report")
 	} else {
-		if err := reportResult(bReport, ignoreWarnings); err != nil {
+		if err := reportResult(bReport, ignoreWarnings,""); err != nil {
 			return err
 		}
 	}

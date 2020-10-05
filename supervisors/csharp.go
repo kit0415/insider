@@ -11,8 +11,8 @@ import (
 )
 
 // RunCSharpSourceCodeAnalysis analyzes the given folder and constructs a models.Report.
-func RunCSharpSourceCodeAnalysis(codeInfo SourceCodeInfo, lang string, destinationFolder string, noJSON bool, noHTML bool, security int, verbose bool, ignoreWarnings bool) error {
-	log.Println("Starting C# source code analysis")
+func RunCSharpSourceCodeAnalysis(codeInfo SourceCodeInfo, lang string, destinationFolder string, noJSON bool, noHTML bool, security int, verbose bool, ignoreWarnings bool,targetSaveLoc string,jsonFilePath string) error {
+	log.Println("Starting C# sourcess code analysis")
 
 	report := reports.Report{}
 
@@ -20,7 +20,7 @@ func RunCSharpSourceCodeAnalysis(codeInfo SourceCodeInfo, lang string, destinati
 	report.Info.SHA1 = codeInfo.SHA1Hash
 	report.Info.SHA256 = codeInfo.SHA256Hash
 
-	if err := analyzers.AnalyzeNonAppSource(destinationFolder, codeInfo.SastID, "csharp", &report, lang); err != nil {
+	if err := analyzers.AnalyzeNonAppSource(destinationFolder, codeInfo.SastID, "csharp", &report, lang,jsonFilePath); err != nil {
 		return err
 	}
 
@@ -37,7 +37,7 @@ func RunCSharpSourceCodeAnalysis(codeInfo SourceCodeInfo, lang string, destinati
 	if noJSON {
 		log.Println("No Json report")
 	} else {
-		if err := reportResult(bReport, ignoreWarnings); err != nil {
+		if err := reportResult(bReport, ignoreWarnings,targetSaveLoc); err != nil {
 			return err
 		}
 	}

@@ -60,7 +60,7 @@ func RunIOSCodeAnalysis(codeInfo SourceCodeInfo, lang string, destinationFolder 
 	if noJSON {
 		log.Println("No Json report")
 	} else {
-		if err := reportResult(bReport, ignoreWarnings); err != nil {
+		if err := reportResult(bReport, ignoreWarnings,""); err != nil {
 			return err
 		}
 	}

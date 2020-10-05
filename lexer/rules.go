@@ -60,6 +60,11 @@ import (
 		returning a POSITIVE MATCH only if all defined PERMISSION was found insinde the permissions list.
 */
 
+type RuleSet struct{
+	RuleSet []Rule `json:"ruleset"`
+}
+
+
 // Rule contains the data about how a SAST rule looks like
 // who interprets this structure is analyzers/static.go file
 type Rule struct {
@@ -96,7 +101,7 @@ type Rule struct {
 	Recomendation_es    string `json:"recomendation_ES"`
 }
 
-func getJSONRuleset(filename string, lang string) ([]Rule, error) {
+func getJSONRuleset(filename string, lang string,jsonFilePath string) ([]Rule, error) {
 	var rules []Rule
 	switch filename {
 	case "lexer/data/android.json":
@@ -104,7 +109,7 @@ func getJSONRuleset(filename string, lang string) ([]Rule, error) {
 	case "lexer/data/core.json":
 		rules = CoreRules(lang)
 	case "lexer/data/csharp.json":
-		rules = CsharpRules(lang)
+		rules = CsharpRules(lang,jsonFilePath)
 	case "lexer/data/javascript.json":
 		rules = JavascriptRules(lang)
 	case "lexer/data/ios.json":
@@ -162,10 +167,10 @@ func getJSONRuleset_HC(filename string, lang string) ([]Rule, error) {
 
 // LoadRules loads the Ruleset for the given
 // techstack and the default (core.json) one
-func LoadRules(techStack string, lang string) ([]Rule, error) {
+func LoadRules(techStack string, lang string,jsonFilePath string) ([]Rule, error) {
 	var requiredRules []Rule
 	log.Println("loading core rules")
-	coreRules, err := getJSONRuleset("lexer/data/core.json", lang)
+	coreRules, err := getJSONRuleset("lexer/data/core.json", lang,"")
 
 	if err != nil {
 		return nil, err
@@ -176,7 +181,7 @@ func LoadRules(techStack string, lang string) ([]Rule, error) {
 	switch techStack {
 	case "android":
 		log.Println("loading android rules")
-		androidRules, err := getJSONRuleset("lexer/data/android.json", lang)
+		androidRules, err := getJSONRuleset("lexer/data/android.json", lang,"")
 
 		if err != nil {
 			return nil, err
@@ -185,7 +190,7 @@ func LoadRules(techStack string, lang string) ([]Rule, error) {
 		requiredRules = append(requiredRules, androidRules...)
 	case "ios":
 		log.Println("loading IOS rules")
-		iosRules, err := getJSONRuleset("lexer/data/ios.json", lang)
+		iosRules, err := getJSONRuleset("lexer/data/ios.json", lang,"")
 
 		if err != nil {
 			return nil, err
@@ -194,7 +199,7 @@ func LoadRules(techStack string, lang string) ([]Rule, error) {
 		requiredRules = append(requiredRules, iosRules...)
 	case "csharp":
 		log.Println("loading csharp rules")
-		csharpRules, err := getJSONRuleset("lexer/data/csharp.json", lang)
+		csharpRules, err := getJSONRuleset("lexer/data/csharp.json", lang,jsonFilePath)
 
 		if err != nil {
 			return nil, err
@@ -202,7 +207,7 @@ func LoadRules(techStack string, lang string) ([]Rule, error) {
 
 		requiredRules = append(requiredRules, csharpRules...)
 	case "iosBinary":
-		iosBinaryRules, err := getJSONRuleset("lexer/data/ios_binary.json", lang)
+		iosBinaryRules, err := getJSONRuleset("lexer/data/ios_binary.json", lang,"")
 
 		if err != nil {
 			return nil, err
@@ -210,7 +215,7 @@ func LoadRules(techStack string, lang string) ([]Rule, error) {
 
 		requiredRules = append(requiredRules, iosBinaryRules...)
 	case "javascript":
-		javaScriptRules, err := getJSONRuleset("lexer/data/javascript.json", lang)
+		javaScriptRules, err := getJSONRuleset("lexer/data/javascript.json", lang,"")
 
 		if err != nil {
 			return nil, err
@@ -218,7 +223,7 @@ func LoadRules(techStack string, lang string) ([]Rule, error) {
 
 		requiredRules = append(requiredRules, javaScriptRules...)
 	case "java":
-		javaRules, err := getJSONRuleset("lexer/data/java.json", lang)
+		javaRules, err := getJSONRuleset("lexer/data/java.json", lang,"")
 
 		if err != nil {
 			return nil, err
